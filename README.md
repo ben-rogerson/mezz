@@ -231,8 +231,3 @@ function App() {
   )
 }
 ```
-
-## Thanks
-
-- [useResizeObserver](https://github.com/ZeeCoder/use-resize-observer) - For providing the ResizeObserver wrapper
-- [HappyCo](https://happy.co/) - For sponsoring this project
