@@ -1,0 +1,55 @@
+{
+  "name": "mezz",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "The repository for mezz",
+  "scripts": {
+    "dev:page": "vite",
+    "dev": "tsc && vite build --watch",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "exports": {
+    ".": {
+      "import": "./lib/main.mjs",
+      "require": "./lib/main.js"
+    }
+  },
+  "main": "lib/main.js",
+  "module": "lib/main.js",
+  "types": "lib/main.d.ts",
+  "files": [
+    "lib"
+  ],
+  "author": "Ben Rogerson <info@benrogerson.dev>",
+  "dependencies": {
+    "@types/throttle-debounce": "^5.0.0",
+    "jsdom": "^22.1.0",
+    "throttle-debounce": "^5.0.0",
+    "use-resize-observer": "^9.1.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.18.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3",
+    "tslib": "^2.6.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vitest": "^0.34.1"
+  }
+}
