@@ -23,6 +23,14 @@
     "lib"
   ],
   "author": "Ben Rogerson <info@benrogerson.dev>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben-rogerson/mezz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ben-rogerson/mezz/issues"
+  },
+  "homepage": "https://github.com/ben-rogerson/mezz#readme",
   "dependencies": {
     "throttle-debounce": "^5.0.0",
     "use-resize-observer": "^9.1.0"
