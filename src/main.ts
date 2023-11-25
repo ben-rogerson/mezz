@@ -186,7 +186,7 @@ const getSizes = <T extends string = Breakpoints>(params: {
     const [index, [title, minBp]] = entry
 
     const nextEntry = ruleList[Number(index) + 1]
-    const maxBp = nextEntry?.[1] - BREAKPOINT_FRACTION ?? null
+    const maxBp = nextEntry?.[1] - BREAKPOINT_FRACTION
     const isCurrentBp = sizePx === minBp || (sizePx > minBp && sizePx < maxBp)
     const isWithinLastBp =
       ruleList.length === Number(index) + 1 && sizePx >= minBp
