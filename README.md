@@ -1,6 +1,10 @@
 # Mezz
 
-📐 Mezz is a small set of react hooks for observing the size of elements and matching the breakpoints you supply — simple, type-safe, and fast.
+📐 Mezz is a set of react hooks for building responsive and adaptable web interfaces.
+
+These hooks observe the size of elements and match the breakpoints you supply — simple, type-safe, and fast.
+
+<p><img src="./.github/preview-usewidth.png" width="650" alt="Typesafe completions screenshot" /></p>
 
 - 💪 Type-safe breakpoint auto-completions
 - ✨ Uses the modern [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) browser API
@@ -14,9 +18,21 @@ These hooks have similarities to [`@container` queries](https://developer.mozill
 - <a href="#usewidth">🪝&nbsp;useWidth</a> - Observe the width of a jsx element (simplest api)
 - <a href="#usewidthheight">🪝&nbsp;useWidthHeight</a> - Observe the width _and height_ of a jsx element
 
-And this one works like a traditional `@media` query:
+And this hook works like a traditional `@media` query:
 
 - <a href="#usebodywidth">🪝&nbsp;useBodyWidth</a> - Observe the width of document.body
+
+## Why not use `window.matchMedia`?
+
+Mezz recognizes that elements can change size dynamically without the user resizing the window. For instance, interactions like opening and closing sidebars can cause adjacent content to adjust its width.
+
+Unlike alternative size matching libraries built with [`window.matchMedia`](https://usehooks-ts.com/react-hook/use-media-query#hook), which **only matches full browser window sizes**, Mezz allows developers to observe and respond to the size of specific elements within the DOM.
+
+## Why not use container queries?
+
+While container queries enable styling within CSS, they lack the capability to conditionally render components or map to component props in TypeScript.
+
+For instance, hiding content with CSS still renders it in the browser, impacting performance. Mezz, on the other hand, allows for conditional rendering based on container size, potentially improving performance by avoiding unnecessary rendering and layout calculations.
 
 ## Getting started
 
