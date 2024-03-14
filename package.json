@@ -13,7 +13,8 @@
   "exports": {
     ".": {
       "import": "./lib/main.mjs",
-      "require": "./lib/main.js"
+      "require": "./lib/main.js",
+      "types": "./lib/main.d.ts"
     }
   },
   "main": "lib/main.js",
