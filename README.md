@@ -247,3 +247,85 @@ function App() {
   )
 }
 ```
+
+#### Syncing screens with Tailwind
+
+Mezz can be used with [Tailwind CSS](https://tailwindcss.com/) to match the same breakpoints you've defined in your `tailwind.config.js` file.
+
+Here’s how to sync the hook `useBodyWidth` with your Tailwind screens config.
+
+First, we need to extract and export the screens object from `tailwind.config.js`. You’ll need to define your screens in the below format:
+
+```tsx
+// tailwind.config.ts
+export const screens = {
+  xs: '375px',
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+  '2xl': '1536px',
+} as const
+
+const config = {
+  theme: {
+    screens,
+    // ...
+  },
+  // ...
+} satisfies Config
+
+export default config
+```
+
+Next we create a provider and use the screens object to generate the breakpoint config:
+
+```tsx
+// breakpointProvider.tsx
+import { useContext, createContext, useMemo } from 'react'
+import { useBodyWidth } from 'mezz'
+import { getTailwindBodyWidthConfig } from 'mezz/tailwind'
+import { screens } from '../../tailwind.config'
+import type { ReactNode } from 'react'
+
+const mezzBodyWidthConfig = getTailwindBodyWidthConfig(screens)
+
+type BodyWidthKeys = keyof typeof mezzBodyWidthConfig
+type BreakpointContextType = ReturnType<typeof useBodyWidth<BodyWidthKeys>>
+
+export const BreakpointProvider = (props: { children: ReactNode }) => {
+  const cachedMezzConfig = useMemo(() => mezzBodyWidthConfig, [])
+  const size = useBodyWidth(cachedMezzConfig)
+
+  return (
+    <BreakpointContext.Provider value={size}>
+      {props.children}
+    </BreakpointContext.Provider>
+  )
+}
+
+const BreakpointContext = createContext<BreakpointContextType | null>(null)
+
+export const useBreakpoint = () => {
+  const context = useContext(BreakpointContext)
+  if (!context) {
+    throw new Error('useBreakpoint must be used within a BreakpointProvider')
+  }
+
+  return context
+}
+```
+
+Next, wrap your app with the `BreakpointProvider` above.
+
+Then use your tailwind body width context like this:
+
+```tsx
+const Component = () => {
+  const bp = useBreakpoint()
+  //    ^? const bp: { active: "sm" | "md" | "lg" | "xl" | "custom" | null; }
+  //       & Record<"sm" | "md" | "lg" | "xl" | "custom", boolean>
+
+  return <>{!bp.xs && `I'm not small`}</>
+}
+```
