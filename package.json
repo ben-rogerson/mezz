@@ -15,6 +15,11 @@
       "import": "./lib/main.mjs",
       "require": "./lib/main.js",
       "types": "./lib/main.d.ts"
+    },
+    "./tailwind": {
+      "import": "./lib/tailwind.mjs",
+      "require": "./lib/tailwind.js",
+      "types": "./lib/tailwind.d.ts"
     }
   },
   "main": "lib/main.js",

@@ -9,17 +9,20 @@ export default defineConfig({
     lib: {
       entry: 'src/main.ts',
       name: 'mezz',
-      fileName: 'main',
-      formats: ['es', 'cjs'],
     },
     outDir: 'lib',
     rollupOptions: {
+      input: ['src/main.ts', 'src/tailwind.ts'],
       external: ['react', 'react-dom'],
       plugins: [
         typescript({
           declaration: true,
           declarationDir: './lib',
         }),
+      ],
+      output: [
+        { format: 'es', entryFileNames: '[name].mjs' },
+        { format: 'cjs', entryFileNames: '[name].js' },
       ],
     },
   },
