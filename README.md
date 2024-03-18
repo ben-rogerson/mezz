@@ -259,12 +259,11 @@ First, we need to extract and export the screens object from `tailwind.config.js
 ```tsx
 // tailwind.config.ts
 export const screens = {
-  xs: '375px',
   sm: '640px',
   md: '768px',
   lg: '1024px',
   xl: '1280px',
-  '2xl': '1536px',
+  custom: '1536px',
 } as const
 
 const config = {
