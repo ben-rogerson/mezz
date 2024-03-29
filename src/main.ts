@@ -37,10 +37,11 @@ const useBodyWidth = <W extends string = Breakpoints>(
     throttleWait?: number
   }
 ) => {
+  const ref = typeof document === 'undefined' ? null : document.body
   const { width } = useWidthHeight<W>({
     width: configWidth,
     throttleWait: config?.throttleWait,
-    ref: typeof document === 'undefined' ? null : document.body,
+    ref,
   })
 
   return width
