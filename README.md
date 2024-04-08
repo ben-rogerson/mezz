@@ -1,6 +1,15 @@
 # Mezz
 
+[![npm](https://img.shields.io/npm/v/mezz?colorA=fdbe90&colorB=fffaeb)](https://www.npmjs.com/package/mezz)
+[![downloads](https://img.shields.io/npm/dm/mezz?colorA=fdbe90&colorB=fffaeb)](https://www.npmjs.com/package/mezz)
+
 📐 Mezz is a set of React hooks for building responsive and adaptable web interfaces.
+
+[👉 **View the docs website**](https://mezz.benrogerson.dev/)
+
+```shell
+pnpm install mezz
+```
 
 These hooks observe the size of elements and match the breakpoints you supply — simple, type-safe, and fast.
 
@@ -10,8 +19,6 @@ These hooks observe the size of elements and match the breakpoints you supply �
 - ✨ Uses the modern [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) browser API
 - ⚡️ Customizable breakpoint naming
 - 🌐 Works in all modern browsers
-
-[👉 **View the docs**](https://mezz.benrogerson.dev/)
 
 ---
 
