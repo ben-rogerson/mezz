@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/mezz?colorA=fdbe90&colorB=fffaeb)](https://www.npmjs.com/package/mezz)
 [![downloads](https://img.shields.io/npm/dm/mezz?colorA=fdbe90&colorB=fffaeb)](https://www.npmjs.com/package/mezz)
+[![size](https://img.shields.io/bundlephobia/minzip/mezz?label=size&colorA=fdbe90&colorB=fffaeb)](https://bundlephobia.com/package/mezz)
 
 📐 Mezz is a set of React hooks for building responsive and adaptable web interfaces.
 
